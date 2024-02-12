@@ -26,6 +26,13 @@ const Books = () => {
             console.log(err);
         }
     };
+      // format as money $000.00
+  const formatMoney = (amount) => {
+    return amount.toLocaleString("en-US", {
+      style: "currency",
+      currency: "USD",
+    });
+  };
 
     return (
         <div className="bookshop">
@@ -47,7 +54,7 @@ const Books = () => {
                             <div className="book-info">
                                 <h2>{book.title}</h2>
                                 <p>{book.desc}</p>
-                                <span>${book.price}</span>
+                                <span>{formatMoney(book.price)}</span>
                             </div>
                             
                         </div>
